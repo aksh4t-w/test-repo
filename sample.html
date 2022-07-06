@@ -10,6 +10,48 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var item = $("#smartabanner");
+            var itemHeight = item.outerHeight();
+            $(".w3-top").css({
+                "top": itemHeight + "px"
+            });
+            // $(".bottom").css({
+            //     "top": itemHeight * 2 + "px"
+            // });
+        });
+
+        $(function () {
+            // Hide banner
+            $('#smb-close').click(function () {
+                $('#smartabanner').slideUp(200, () => $(".w3-top").css({
+                    "top": "0px"
+                }));
+                /// Or 
+                //$('#smartabanner').fadeOut(500);
+
+            });
+        });
+
+        var el_up = document.getElementById("GFG_UP");
+        var el_down = document.getElementById("GFG_DOWN");
+        el_up.innerHTML = "Click on the button to detect if"
+            + " the device is android phone.";
+
+        function GFG_Fun() {
+            var res = "Device is not Android Phone";
+            var userAgent = navigator.userAgent.toLowerCase();
+            var Android = userAgent.indexOf("android") > -1;
+
+            if (Android) {
+                res = "Device is Android Phone";
+            }
+            el_down.innerHTML = res;
+        }
+
+    </script>
     <style>
         body {
             font-family: "Lato", sans-serif
@@ -18,10 +60,129 @@
         .mySlides {
             display: none
         }
+
+        .smartbanner {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 78px;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            background: #fff;
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            z-index: 10;
+        }
+
+        .smartbanner-container {
+            margin: 0 auto;
+        }
+
+        .smartbanner-close {
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            display: block;
+            font-family: 'ArialRoundedMTBold', Arial;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 14px;
+            -webkit-font-smoothing: subpixel-antialiased;
+            border: 0;
+            width: 17px;
+            height: 17px;
+            line-height: 17px;
+            color: #b1b1b3;
+            background: #efefef;
+        }
+
+        .smartbanner-close:active,
+        .smartbanner-close:hover {
+            color: #333;
+        }
+
+        .smartbanner-icon {
+            position: absolute;
+            left: 30px;
+            top: 10px;
+            display: block;
+            width: 57px;
+            height: 57px;
+            background-color: #fff;
+            background-size: cover;
+            background-image: url("https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/6e/a3/df/6ea3df3b-d60b-eb06-492f-e1c30bd37c27/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.webp");
+        }
+
+        .smartbanner-info {
+            position: absolute;
+            left: 98px;
+            top: 15px;
+            width: 44%;
+            font-size: 12px;
+            line-height: 1.2em;
+            font-weight: bold;
+            color: #999;
+        }
+
+        .smartbanner-title {
+            font-size: 15px;
+            line-height: 17px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .smartbanner-button {
+            position: absolute;
+            right: 20px;
+            top: 24px;
+            border-bottom: 3px solid #b3c833;
+            padding: 0 10px;
+            min-width: 12%;
+            height: 24px;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            background-color: #b3c833;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .smartbanner-button:hover {
+            background-color: #c1d739;
+            border-bottom: 3px solid #8c9c29;
+        }
+
+        .smartbanner-button-text {
+            text-align: center;
+            display: block;
+            padding: 0 5px;
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="smartbanner" id="smartabanner">
+        <div class="smartbanner-container">
+            <a href="#" id="smb-close" class="smartbanner-close">&times;</a>
+            <span class="smartbanner-icon"></span>
+            <div class="smartbanner-info">
+                <div class="smartbanner-title">NYP Connect</div>
+                <div>New York-Presbyterian Hospital</div>
+                <span>Free &ndash; Google Play</span>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=org.nyp.nyppatient.android&hl=en_US&gl=US"
+                target="_blank" class="smartbanner-button">
+                <span class="smartbanner-button-text">Get it</span>
+            </a>
+        </div>
+    </div>
 
     <!-- Navbar -->
     <div class="w3-top">
