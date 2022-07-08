@@ -14,43 +14,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-            var item = $("#smartabanner");
-            var itemHeight = item.outerHeight();
-            $(".w3-top").css({
-                "top": itemHeight + "px"
-            });
-            // $(".bottom").css({
-            //     "top": itemHeight * 2 + "px"
-            // });
-        });
-
-        $(function () {
             // Hide banner
             $('#smb-close').click(function () {
-                $('#smartabanner').slideUp(200, () => $(".w3-top").css({
+                $('#smartbanner').slideUp(200, () => $(".w3-top").css({
                     "top": "0px"
                 }));
-                /// Or 
-                //$('#smartabanner').fadeOut(500);
-
             });
         });
 
-        var el_up = document.getElementById("GFG_UP");
-        var el_down = document.getElementById("GFG_DOWN");
-        el_up.innerHTML = "Click on the button to detect if"
-            + " the device is android phone.";
 
-        function GFG_Fun() {
+        function displayBannerForAndroid() {
             var res = "Device is not Android Phone";
             var userAgent = navigator.userAgent.toLowerCase();
             var Android = userAgent.indexOf("android") > -1;
 
             if (Android) {
                 res = "Device is Android Phone";
+                $(function () {
+                    var item = $("#smartbanner");
+                    var itemHeight = item.outerHeight();
+                    item.css({
+                        "display": 'block'
+                    })
+                    $(".w3-top").css({
+                        "top": itemHeight + "px"
+                    });
+                });
             }
-            el_down.innerHTML = res;
+            console.log(res)
         }
+
+        displayBannerForAndroid()
 
     </script>
     <style>
@@ -169,7 +163,8 @@
 
 <body>
 
-    <div class="smartbanner" id="smartabanner">
+    <!-- Smart Banner (Android) -->
+    <div class="smartbanner" id="smartbanner" style="display: none">
         <div class="smartbanner-container">
             <a href="#" id="smb-close" class="smartbanner-close">&times;</a>
             <span class="smartbanner-icon"></span>
