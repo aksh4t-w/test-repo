@@ -11,42 +11,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="manifest" href="/manifest.json">
+    <script src="app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(function () {
-            // Hide banner
-            $('#smb-close').click(function () {
-                $('#smartbanner').slideUp(200, () => $(".w3-top").css({
-                    "top": "0px"
-                }));
-            });
-        });
 
-
-        function displayBannerForAndroid() {
-            var res = "Device is not Android Phone";
-            var userAgent = navigator.userAgent.toLowerCase();
-            var Android = userAgent.indexOf("android") > -1;
-
-            if (Android) {
-                res = "Device is Android Phone";
-                $(function () {
-                    var item = $("#smartbanner");
-                    var itemHeight = item.outerHeight();
-                    item.css({
-                        "display": 'block'
-                    })
-                    $(".w3-top").css({
-                        "top": itemHeight + "px"
-                    });
-                });
-            }
-            console.log(res)
-        }
-
-        displayBannerForAndroid()
-
-    </script>
     <style>
         body {
             font-family: "Lato", sans-serif
@@ -162,6 +129,8 @@
 </head>
 
 <body>
+
+    <button class="d-btn" style="position: absolute; top: 50px;">Download</button>
 
     <!-- Smart Banner (Android) -->
     <div class="smartbanner" id="smartbanner" style="display: none">
@@ -422,6 +391,74 @@
         }
     </script>
 
+    <script>
+        let deferredPrompt;
+
+        const btnAdd = document.querySelector(".d-btn");
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI notify the user they can add to home screen
+            btnAdd.style.display = 'block';
+        });
+
+        if (btnAdd) {
+            btnAdd.addEventListener('click', (e) => {
+                // hide our user interface that shows our A2HS button
+                btnAdd.style.display = 'none';
+                // Show the prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice
+                    .then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the A2HS prompt');
+                        } else {
+                            console.log('User dismissed the A2HS prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+            }, false);
+        }
+
+
+        $(function () {
+            // Hide banner
+            $('#smb-close').click(function () {
+                $('#smartbanner').slideUp(200, () => $(".w3-top").css({
+                    "top": "0px"
+                }));
+            });
+        });
+
+
+        function displayBannerForAndroid() {
+            var res = "Device is not Android Phone";
+            var userAgent = navigator.userAgent.toLowerCase();
+            var Android = userAgent.indexOf("android") > -1;
+
+            if (Android) {
+                res = "Device is Android Phone";
+                $(function () {
+                    var item = $("#smartbanner");
+                    var itemHeight = item.outerHeight();
+                    item.css({
+                        "display": 'block'
+                    })
+                    $(".w3-top").css({
+                        "top": itemHeight + "px"
+                    });
+                });
+            }
+            console.log(res)
+        }
+
+            // displayBannerForAndroid()
+
+    </script>
 </body>
 
 </html>
