@@ -6,10 +6,18 @@
   "background_color": "#FFE9D2",
   "theme_color": "#FFE1C4",
   "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "type": "image/png",
+      "sizes": "240x240"
+    }
+  ],
   "prefer_related_applications": true,
   "related_applications": [
       {
       "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=org.nyp.nyppatient.android&hl=en_US&gl=US",
       "id": "com.google.samples.apps.iosched"
       }
   ]
