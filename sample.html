@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <script src="app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -133,8 +133,8 @@
     <button class="d-btn" style="position: absolute; top: 50px;">Download</button>
 
     <!-- Smart Banner (Android) -->
-    <div style="height:100px;width:100px"></div>
-    <button class="downloadButton">Download App</button>
+    <!-- <div style="height:100px;width:100px"></div>
+    <button class="downloadButton">Download App</button> -->
 
     <div class="smartbanner" id="smartbanner" style="display: none">
         <div class="smartbanner-container">
@@ -419,8 +419,10 @@
                     .then((choiceResult) => {
                         if (choiceResult.outcome === 'accepted') {
                             console.log('User accepted the A2HS prompt');
+                            window.alert('User accepted the A2HS prompt');
                         } else {
                             console.log('User dismissed the A2HS prompt');
+                            window.alert('User dismissed the A2HS prompt');
                         }
                         deferredPrompt = null;
                     });
