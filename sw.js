@@ -9,5 +9,5 @@ self.addEventListener('activate', event => {
 })
 
 self.addEventListener( "fetch", event => {
-    console.log('WORKER: Fetching', event.request);
+    console.log('WORKER: Fetching requests');
   });

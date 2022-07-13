@@ -8,12 +8,22 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "./icon.png",
+      "src": "./icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icon240.png",
       "type": "image/png",
       "sizes": "240x240"
+    },
+    {
+      "src": "./icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
-  "prefer_related_applications": true,
+  "prefer_related_applications": false,
   "related_applications": [
       {
       "platform": "play",
