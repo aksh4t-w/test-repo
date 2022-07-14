@@ -129,12 +129,9 @@
 </head>
 
 <body>
+    <!-- Smart Banner (Android) -->
     <!-- <button class="d-btn" style="position: absolute; top: 50px; height: 50px;">Native App
         Download</button> -->
-
-    <!-- Smart Banner (Android) -->
-    <!-- <div style="height:100px;width:100px"></div>
-    <button class="downloadButton">Download App</button> -->
 
     <div class="smartbanner" id="smartbanner" style="display: none">
         <div class="smartbanner-container">
@@ -284,16 +281,7 @@
             deferredPrompt = e;
             // Update UI notify the user they can add to home screen
             btnAdd.style.display = 'block';
-            $(function () {
-                const item = $("#smartbanner");
-                const itemHeight = item.outerHeight();
-                item.css({
-                    "display": 'block'
-                })
-                $(".w3-top").css({
-                    "top": itemHeight + "px"
-                });
-            });
+            displayBannerForAndroid();
         });
 
         const btnAdd = document.querySelector(".smartbanner-button");
@@ -302,7 +290,6 @@
             btnAdd.addEventListener('click', (e) => {
                 // hide our user interface that shows our A2HS button
                 console.log("Click event")
-                // btnAdd.style.display = 'none';
                 const item = $("#smartbanner");
                 item.css({
                     "display": 'none'
@@ -328,7 +315,6 @@
             }, false);
         }
 
-
         // // Custom app installation script
         // $(function () {
         //     // Hide banner
@@ -340,28 +326,26 @@
         // });
 
 
-        // function displayBannerForAndroid() {
-        //     var res = "Device is not Android Phone";
-        //     var userAgent = navigator.userAgent.toLowerCase();
-        //     var Android = userAgent.indexOf("android") > -1;
+        function displayBannerForAndroid() {
+            var res = "Device is not Android Phone";
+            var userAgent = navigator.userAgent.toLowerCase();
+            var Android = userAgent.indexOf("android") > -1;
 
-        //     if (Android) {
-        //         res = "Device is Android Phone";
-        //         $(function () {
-        //             var item = $("#smartbanner");
-        //             var itemHeight = item.outerHeight();
-        //             item.css({
-        //                 "display": 'block'
-        //             })
-        //             $(".w3-top").css({
-        //                 "top": itemHeight + "px"
-        //             });
-        //         });
-        //     }
-        //     console.log(res)
-        // }
-
-        // displayBannerForAndroid()
+            if (Android) {
+                res = "Device is Android Phone";
+                $(function () {
+                    var item = $("#smartbanner");
+                    var itemHeight = item.outerHeight();
+                    item.css({
+                        "display": 'block'
+                    })
+                    $(".w3-top").css({
+                        "top": itemHeight + "px"
+                    });
+                });
+            }
+            console.log(res)
+        }
 
     </script>
 </body>
