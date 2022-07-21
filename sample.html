@@ -269,7 +269,7 @@
         }
     </script>
 
-    <script src="./app.js"></script>
+    <script src="./js/app.js"></script>
 
     <script>
         let deferredPrompt;
@@ -315,15 +315,14 @@
             }, false);
         }
 
-        // // Custom app installation script
-        // $(function () {
-        //     // Hide banner
-        //     $('#smb-close').click(function () {
-        //         $('#smartbanner').slideUp(200, () => $(".w3-top").css({
-        //             "top": "0px"
-        //         }));
-        //     });
-        // });
+        $(function () {
+            // Hide banner
+            $('#smb-close').click(function () {
+                $('#smartbanner').slideUp(200, () => $(".w3-top").css({
+                    "top": "0px"
+                }));
+            });
+        });
 
 
         function displayBannerForAndroid() {
