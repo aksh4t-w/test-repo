@@ -1,34 +1,49 @@
 {
-  "name": "Sample Web App",
-  "short_name": "SWA",
-  "start_url": "./sample.html",
+  "name": "Banfield Pet Hospital",
+  "short_name": "Banfield Pet Hospital",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#FFE9D2",
   "theme_color": "#FFE1C4",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "./img/icons/icon192.png",
+      "src": "./img/icons/launcher-icon-0-75x.png",
+      "type": "image/png",
+      "sizes": "36x36"
+    },
+    {
+      "src": "./img/icons/launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./img/icons/launcher-icon-1-5x.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "./img/icons/launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./img/icons/launcher-icon-3x.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./img/icons/launcher-icon-4x.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "./img/icons/icon240.png",
-      "type": "image/png",
-      "sizes": "240x240"
-    },
-    {
-      "src": "./img/icons/icon512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "prefer_related_applications": true,
   "related_applications": [
       {
       "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=org.nyp.nyppatient.android&hl=en_US&gl=US",
-      "id": "org.nyp.nyppatient.android"
+      "url": "https://play.google.com/store/apps/details?id=com.banfield.bpht&hl=en_US&gl=US",
+      "id": "com.banfield.bpht"
       }
   ]
 }
