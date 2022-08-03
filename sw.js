@@ -1,13 +1,14 @@
 // Install SW
-self.addEventListener("install", (event) => {
+self.addEventListener("install", function (event) {
   console.log("Service worker installed");
 });
 
 // Activate SW
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", function (event) {
   console.log("Service worker activated");
 });
 
-self.addEventListener("fetch", (event) => {
+// Fetch event
+self.addEventListener("fetch", function (event) {
   console.log("WORKER: Fetching requests");
 });
